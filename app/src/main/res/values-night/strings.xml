@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="location">Москва</string>
+    <string name="menu">Меню</string>
+    <string name="user">Профиль</string>
+    <string name="bag">Корзина</string>
+    <string name="price">от 345 р.</string>
+</resources>

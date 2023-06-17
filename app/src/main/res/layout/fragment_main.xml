@@ -35,11 +35,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
+                android:importantForAccessibility="no"
                 android:src="@drawable/baseline_keyboard_arrow_down_24"
                 app:layout_constraintBottom_toBottomOf="@+id/text_location"
                 app:layout_constraintStart_toEndOf="@id/text_location"
-                app:layout_constraintTop_toTopOf="@id/text_location"
-                android:importantForAccessibility="no" />
+                app:layout_constraintTop_toTopOf="@id/text_location" />
 
 
             <ImageView
@@ -48,10 +48,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="42dp"
                 android:layout_marginEnd="16dp"
+                android:importantForAccessibility="no"
                 android:src="@drawable/baseline_qr_code_scanner_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:importantForAccessibility="no" />
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -71,6 +71,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginStart="4dp"
             android:id="@+id/recyclerNewsSource"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

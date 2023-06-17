@@ -2,12 +2,16 @@
 <resources>
 
 
-
-    <style name="Widget.App.Button.OutlinedButton.MyStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+    <style name="Widget.App.Button.OutlinedButton.MyStyle" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="strokeColor">@color/Outlined_button_background_color</item>
-        <item name="android:backgroundTint">@color/Outlined_button_background_color</item>
-        <item name="backgroundTint">@color/button_selecotr</item>
-        <item name="android:textColor">@color/Outlined_button_color</item>
+        <item name="backgroundTint">@color/button_background_selecotr</item>
+        <item name="android:textColor">@color/button_text_selector</item>
+    </style>
+
+
+    <style name="Base.Widget.Material3.BottomNavigationView.Mystyle" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_navigation_selector</item>
+        <item name="itemTextColor">@color/Outlined_button_color</item>
     </style>
 
 </resources>

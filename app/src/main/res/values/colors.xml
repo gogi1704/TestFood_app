@@ -3,7 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="alpha">#00FFFFFF</color>
+    <color name="grey">#8C8787</color>
     <color name="Outlined_button_color">#FD3A69</color>
-    <color name="Outlined_button_background_color">#20FD3A69</color>
+    <color name="Outlined_button_background_color">#31FD3A69</color>
 
 </resources>

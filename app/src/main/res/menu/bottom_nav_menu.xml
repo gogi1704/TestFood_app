@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu"
+        android:enabled="true"
+        android:icon="@drawable/baseline_fastfood_24"
+        android:title="@string/menu" />
+
+    <item
+        android:id="@+id/user"
+        android:enabled="true"
+        android:icon="@drawable/baseline_person_24"
+        android:title="@string/user" />
+
+    <item
+        android:id="@+id/bag"
+        android:enabled="true"
+        android:icon="@drawable/baseline_shopping_bag_24"
+        android:title="@string/bag" />
+
+</menu>
