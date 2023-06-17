@@ -1,18 +1,18 @@
-package com.example.testfood_app.ui.adapter
+package com.example.testfood_app.ui.adapter.newsAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testfood_app.data.NewsModel
-import com.example.testfood_app.databinding.ItemLayoutBinding
+import com.example.testfood_app.databinding.ItemNewsLayoutBinding
 
-class MyAdapter: ListAdapter<NewsModel, MyAdapter.MyViewHolder>(NewsDiffUtil()) {
+class NewsAdapter: ListAdapter<NewsModel, NewsAdapter.MyViewHolder>(NewsDiffUtil()) {
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-       val binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context) , parent , false)
+       val binding = ItemNewsLayoutBinding.inflate(LayoutInflater.from(parent.context) , parent , false)
         return MyViewHolder(binding)
     }
 
@@ -21,9 +21,9 @@ class MyAdapter: ListAdapter<NewsModel, MyAdapter.MyViewHolder>(NewsDiffUtil()) 
     }
 
 
-    class MyViewHolder(private val binding: ItemLayoutBinding):RecyclerView.ViewHolder(binding.root){
+    class MyViewHolder(private val binding: ItemNewsLayoutBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(item:NewsModel){
-            binding.text.text = item.title
+            binding.textName.text = item.title
         }
     }
 }

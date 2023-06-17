@@ -1,4 +1,4 @@
-package com.example.testfood_app.ui.adapter
+package com.example.testfood_app.ui.adapter.newsAdapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.testfood_app.data.NewsModel

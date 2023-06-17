@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:stickyHeader="@id/recycler2"
+    app:stickyHeader="@id/recyclerNewsSource"
     tools:context=".ui.MainActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -14,25 +14,74 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:src="@drawable/ic_launcher_background"
-            android:importantForAccessibility="no" />
+            <TextView
+                android:id="@+id/text_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/location"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/image_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:src="@drawable/baseline_keyboard_arrow_down_24"
+                app:layout_constraintBottom_toBottomOf="@+id/text_location"
+                app:layout_constraintStart_toEndOf="@id/text_location"
+                app:layout_constraintTop_toTopOf="@id/text_location"
+                android:importantForAccessibility="no" />
+
+
+            <ImageView
+                android:id="@+id/image_qrCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/baseline_qr_code_scanner_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:importantForAccessibility="no" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerDiscounts"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_location"
+                tools:listitem="@layout/item_recycler_discounts_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler2"
+            android:id="@+id/recyclerNewsSource"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/design_default_color_background"
+            android:elevation="4dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_source_layout" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
+            android:id="@+id/recyclerNews"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/design_default_color_background"

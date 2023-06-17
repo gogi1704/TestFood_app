@@ -6,20 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.testfood_app.data.NewsModel
+import com.example.testfood_app.data.NewsSourceModel
 import com.example.testfood_app.databinding.FragmentMainBinding
-import com.example.testfood_app.ui.adapter.MyAdapter
+import com.example.testfood_app.ui.adapter.newsAdapter.NewsAdapter
+import com.example.testfood_app.ui.adapter.newsSourceAdapter.NewsSourceAdapter
 
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
-    private lateinit var adapter: MyAdapter
+    private lateinit var newsAdapter: NewsAdapter
+    private lateinit var sourceAdapter: NewsSourceAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(layoutInflater, container, false)
-        adapter = MyAdapter().apply {
+        newsAdapter = NewsAdapter().apply {
             submitList(
                 listOf(
                     NewsModel("qwe"),
@@ -41,9 +44,22 @@ class MainFragment : Fragment() {
                 )
             )
         }
+
+        sourceAdapter = NewsSourceAdapter().apply {
+            submitList(
+                listOf(
+                    NewsSourceModel("", "Goeefv", "", "", "", "", ""),
+                    NewsSourceModel("", "sdvwerg", "", "", "", "", ""),
+                    NewsSourceModel("", "asfsegerv", "", "", "", "", ""),
+                    NewsSourceModel("", "asfacxca", "", "", "", "", ""),
+                    NewsSourceModel("", "ascvrgr", "", "", "", "", ""),
+                    NewsSourceModel("", "eqdqwd", "", "", "", "", ""),
+                )
+            )
+        }
         with(binding) {
-            recycler.adapter = adapter
-            recycler2.adapter = adapter
+            recyclerNews.adapter = newsAdapter
+            recyclerNewsSource.adapter = sourceAdapter
         }
 
 
