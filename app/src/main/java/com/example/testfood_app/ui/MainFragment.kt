@@ -43,6 +43,7 @@ class MainFragment : Fragment() {
         }
         with(binding) {
             recycler.adapter = adapter
+            recycler2.adapter = adapter
         }
 
 

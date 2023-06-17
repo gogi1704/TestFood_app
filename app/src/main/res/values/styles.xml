@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <style name="Widget.App.Button.OutlinedButton.MyStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/Outlined_button_background_color</item>
+        <item name="android:backgroundTint">@color/Outlined_button_background_color</item>
+        <item name="backgroundTint">@color/button_selecotr</item>
+        <item name="android:textColor">@color/Outlined_button_color</item>
+    </style>
+
+</resources>
