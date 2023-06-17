@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testfood_app.data.NewsSourceModel
+import com.example.testfood_app.data.models.NewsSourceModel
 import com.example.testfood_app.databinding.ItemSourceLayoutBinding
 
 class NewsSourceAdapter :
@@ -24,7 +24,7 @@ class NewsSourceAdapter :
     class NewsSourceViewHolder(private val binding: ItemSourceLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(item:NewsSourceModel){
+            fun bind(item: NewsSourceModel){
                 with(binding){
                     buttonSource.text = item.name
                 }

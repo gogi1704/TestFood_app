@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.testfood_app.data.Discount
-import com.example.testfood_app.data.NewsModel
-import com.example.testfood_app.data.NewsSourceModel
+import com.example.testfood_app.data.models.Discount
+import com.example.testfood_app.data.models.NewsModel
+import com.example.testfood_app.data.models.NewsSourceModel
 import com.example.testfood_app.databinding.FragmentMainBinding
 import com.example.testfood_app.ui.adapter.discountsAdapter.DiscountsAdapter
 import com.example.testfood_app.ui.adapter.newsAdapter.NewsAdapter

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testfood_app.R
-import com.example.testfood_app.data.Discount
+import com.example.testfood_app.data.models.Discount
 import com.example.testfood_app.databinding.ItemRecyclerDiscountsLayoutBinding
 
 class DiscountsAdapter :

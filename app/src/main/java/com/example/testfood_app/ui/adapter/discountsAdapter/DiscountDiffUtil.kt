@@ -1,7 +1,7 @@
 package com.example.testfood_app.ui.adapter.discountsAdapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.testfood_app.data.Discount
+import com.example.testfood_app.data.models.Discount
 
 class DiscountDiffUtil:DiffUtil.ItemCallback<Discount>() {
     override fun areItemsTheSame(oldItem: Discount, newItem: Discount): Boolean {

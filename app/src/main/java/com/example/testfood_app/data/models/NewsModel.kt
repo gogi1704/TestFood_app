@@ -1,4 +1,4 @@
-package com.example.testfood_app.data
+package com.example.testfood_app.data.models
 
 data class NewsModel (
    // val author:String ,

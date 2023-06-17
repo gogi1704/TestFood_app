@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testfood_app.data.NewsModel
+import com.example.testfood_app.data.models.NewsModel
 import com.example.testfood_app.databinding.ItemNewsLayoutBinding
 
 class NewsAdapter: ListAdapter<NewsModel, NewsAdapter.MyViewHolder>(NewsDiffUtil()) {
@@ -22,7 +22,7 @@ class NewsAdapter: ListAdapter<NewsModel, NewsAdapter.MyViewHolder>(NewsDiffUtil
 
 
     class MyViewHolder(private val binding: ItemNewsLayoutBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item:NewsModel){
+        fun bind(item: NewsModel){
             binding.textName.text = item.title
         }
     }

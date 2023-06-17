@@ -1,7 +1,7 @@
 package com.example.testfood_app.ui.adapter.newsAdapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.testfood_app.data.NewsModel
+import com.example.testfood_app.data.models.NewsModel
 
 class NewsDiffUtil : DiffUtil.ItemCallback<NewsModel>() {
     override fun areItemsTheSame(oldItem: NewsModel, newItem: NewsModel): Boolean {
