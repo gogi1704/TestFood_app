@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -65,7 +66,7 @@ class MainFragment : Fragment() {
 
 
 
-        viewModel.newsSourcesData.observe(viewLifecycleOwner) {list ->
+        viewModel.newsSourcesData.observe(viewLifecycleOwner) { list ->
             sourceAdapter.submitList(list)
             viewModel.usedSourcesIds =
                 list?.filter { it.isUsed }?.map { it.id }?.toMutableList()
@@ -74,6 +75,13 @@ class MainFragment : Fragment() {
 
         viewModel.newsLiveData.observe(viewLifecycleOwner) {
             newsAdapter.submitList(it)
+        }
+
+        viewModel.errorStateLiveData.observe(viewLifecycleOwner) {
+            if (it != null) {
+                Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            }
+
         }
 
 
