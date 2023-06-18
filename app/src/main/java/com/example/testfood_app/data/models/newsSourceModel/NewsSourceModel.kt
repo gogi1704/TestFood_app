@@ -1,4 +1,4 @@
-package com.example.testfood_app.data.models
+package com.example.testfood_app.data.models.newsSourceModel
 
 import com.example.testfood_app.data.db.entities.NewsSourceEntity
 

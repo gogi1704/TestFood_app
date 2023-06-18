@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testfood_app.data.models.NewsSourceModel
+import com.example.testfood_app.data.models.newsSourceModel.NewsSourceModel
 import com.example.testfood_app.databinding.ItemSourceLayoutBinding
 
 interface NewsSourceOnClickListener {

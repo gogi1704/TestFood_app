@@ -10,6 +10,8 @@
         android:layout_height="wrap_content">
 
         <ImageView
+
+            android:scaleType="centerCrop"
             android:id="@+id/image"
             android:layout_width="135dp"
             android:layout_height="135dp"
@@ -34,7 +36,8 @@
             tools:text="Victoria" />
 
         <TextView
-            android:id="@+id/textView"
+            android:maxLines="3"
+            android:id="@+id/textContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -55,8 +58,8 @@
             style="@style/Widget.Material3.Button.OutlinedButton"
             app:strokeColor="@color/Outlined_button_color"
             app:layout_constraintBottom_toBottomOf="@id/image"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/textContent"
+            app:layout_constraintTop_toBottomOf="@+id/textContent"
             app:layout_constraintVertical_bias="1.0" />
 
 

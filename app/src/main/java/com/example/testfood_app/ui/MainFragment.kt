@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testfood_app.data.models.Discount
-import com.example.testfood_app.data.models.NewsModel
 import com.example.testfood_app.databinding.FragmentMainBinding
 import com.example.testfood_app.ui.adapter.discountsAdapter.DiscountsAdapter
 import com.example.testfood_app.ui.adapter.newsAdapter.NewsAdapter
@@ -33,28 +32,7 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(layoutInflater, container, false)
 
-        newsAdapter = NewsAdapter().apply {
-            submitList(
-                listOf(
-                    NewsModel("qwe"),
-                    NewsModel("sfwefwsev"),
-                    NewsModel("asdascvv"),
-                    NewsModel("qwecv  sdfae"),
-                    NewsModel("asdfewfwv  asdadadx"),
-                    NewsModel(" asd22"), NewsModel("qwe"),
-                    NewsModel("sfwefwsev"),
-                    NewsModel("asdascvv"),
-                    NewsModel("qwecv  sdfae"),
-                    NewsModel("asdfewfwv  asdadadx"),
-                    NewsModel(" asd22"), NewsModel("qwe"),
-                    NewsModel("sfwefwsev"),
-                    NewsModel("asdascvv"),
-                    NewsModel("qwecv  sdfae"),
-                    NewsModel("asdfewfwv  asdadadx"),
-                    NewsModel(" asd22"),
-                )
-            )
-        }
+        newsAdapter = NewsAdapter()
         discountsAdapter = DiscountsAdapter().apply {
             submitList(
                 listOf(
@@ -63,7 +41,6 @@ class MainFragment : Fragment() {
                 )
             )
         }
-
         sourceAdapter = NewsSourceAdapter(object : NewsSourceOnClickListener {
             override fun clickSource(id: String) {
                 viewModel.check(id)
@@ -88,8 +65,15 @@ class MainFragment : Fragment() {
 
 
 
-        viewModel.newsSourcesData.observe(viewLifecycleOwner) {
-            sourceAdapter.submitList(it)
+        viewModel.newsSourcesData.observe(viewLifecycleOwner) {list ->
+            sourceAdapter.submitList(list)
+            viewModel.usedSourcesIds =
+                list?.filter { it.isUsed }?.map { it.id }?.toMutableList()
+            viewModel.getNews()
+        }
+
+        viewModel.newsLiveData.observe(viewLifecycleOwner) {
+            newsAdapter.submitList(it)
         }
 
 

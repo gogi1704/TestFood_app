@@ -3,9 +3,9 @@ package com.example.testfood_app.data.repository
 import com.example.testfood_app.api.ApiService
 import com.example.testfood_app.api.module.ApiModule.Companion.NEWS_API_KEY
 import com.example.testfood_app.data.db.dao.NewsSourceDao
-import com.example.testfood_app.data.models.NewsSourceModel
-import com.example.testfood_app.data.models.toEntity
-import com.example.testfood_app.data.models.toModel
+import com.example.testfood_app.data.models.newsModel.Articles
+import com.example.testfood_app.data.models.newsSourceModel.toEntity
+import com.example.testfood_app.data.models.newsSourceModel.toModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -31,11 +31,10 @@ class NewsRepositoryImpl @Inject constructor(
         } else throw Exception()
     }
 
-    override suspend fun getNews(source: String): List<NewsSourceModel> {
+    override suspend fun getNews(source: String): List<Articles> {
         val response = apiService.getNews(source, NEWS_API_KEY)
-
         if (response.isSuccessful) {
-            return response.body() ?: throw Exception()
+            return response.body()?.articles ?: throw Exception()
         } else throw Exception()
     }
 
