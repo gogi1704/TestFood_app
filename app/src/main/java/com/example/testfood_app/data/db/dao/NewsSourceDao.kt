@@ -14,7 +14,7 @@ interface NewsSourceDao {
     fun getAll(): Flow<List<NewsSourceEntity>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertNews(newsEntity: List<NewsSourceEntity>)
+    suspend fun insertNews(newsSourceEntity: List<NewsSourceEntity>)
 
     @Query("UPDATE NewsSourceEntity SET isUsed = CASE WHEN isUsed THEN 0 ELSE 1 END WHERE id = :id")
     suspend fun check(id: String)

@@ -7,13 +7,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.testfood_app.data.models.NewsSourceModel
 import com.example.testfood_app.databinding.ItemSourceLayoutBinding
 
-class NewsSourceAdapter :
+interface NewsSourceOnClickListener {
+    fun clickSource(id: String)
+}
+
+class NewsSourceAdapter(private val listener: NewsSourceOnClickListener) :
     ListAdapter<NewsSourceModel, NewsSourceAdapter.NewsSourceViewHolder>(NewsSourceDiffUtil()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsSourceViewHolder {
-       val binding = ItemSourceLayoutBinding.inflate(LayoutInflater.from(parent.context) , parent , false )
-        return NewsSourceViewHolder(binding)
+        val binding =
+            ItemSourceLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return NewsSourceViewHolder(binding, listener)
     }
 
     override fun onBindViewHolder(holder: NewsSourceViewHolder, position: Int) {
@@ -21,14 +26,21 @@ class NewsSourceAdapter :
     }
 
 
-    class NewsSourceViewHolder(private val binding: ItemSourceLayoutBinding) :
+    class NewsSourceViewHolder(
+        private val binding: ItemSourceLayoutBinding,
+        private val listener: NewsSourceOnClickListener
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(item: NewsSourceModel){
-                with(binding){
-                    buttonSource.text = item.name
+        fun bind(item: NewsSourceModel) {
+            with(binding) {
+                buttonSource.text = item.name
+                buttonSource.isChecked = item.isUsed
+                buttonSource.setOnClickListener {
+                    listener.clickSource(item.id)
                 }
             }
+        }
 
     }
 }

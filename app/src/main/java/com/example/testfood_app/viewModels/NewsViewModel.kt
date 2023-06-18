@@ -2,10 +2,11 @@ package com.example.testfood_app.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.testfood_app.data.models.NewsSourceModel
 import com.example.testfood_app.data.repository.NewsRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,18 +15,30 @@ class NewsViewModel @Inject constructor(
     application: Application,
     private val repository: NewsRepositoryImpl
 ) : AndroidViewModel(application) {
-    private var list = listOf<NewsSourceModel>()
-        set(value) {
-            field = value
-            println(value)
-        }
+
+    val newsSourcesData = repository.newsDataFlow.asLiveData(Dispatchers.Default)
+    var usedSourcesIds = newsSourcesData.value?.filter { it.isUsed }?.map { it.id }?.toMutableList()
+
     fun getSources() {
         viewModelScope.launch {
-            list = repository.getSources()
+            repository.getSources()
         }
     }
 
+
     fun getNews() {}
+
+
+    fun check(id:String) {
+        if (usedSourcesIds?.contains(id) == true) {
+            usedSourcesIds!!.remove(id)
+        } else {
+            usedSourcesIds?.add(id)
+        }
+        viewModelScope.launch {
+            repository.check(id)
+        }
+    }
 
 
     init {

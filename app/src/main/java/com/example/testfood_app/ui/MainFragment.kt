@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testfood_app.data.models.Discount
 import com.example.testfood_app.data.models.NewsModel
-import com.example.testfood_app.data.models.NewsSourceModel
 import com.example.testfood_app.databinding.FragmentMainBinding
 import com.example.testfood_app.ui.adapter.discountsAdapter.DiscountsAdapter
 import com.example.testfood_app.ui.adapter.newsAdapter.NewsAdapter
 import com.example.testfood_app.ui.adapter.newsSourceAdapter.NewsSourceAdapter
+import com.example.testfood_app.ui.adapter.newsSourceAdapter.NewsSourceOnClickListener
 import com.example.testfood_app.viewModels.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -55,20 +55,6 @@ class MainFragment : Fragment() {
                 )
             )
         }
-
-        sourceAdapter = NewsSourceAdapter().apply {
-            submitList(
-                listOf(
-                    NewsSourceModel("", "Goeefv", "", "", "", "", ""),
-                    NewsSourceModel("", "sdvwerg", "", "", "", "", ""),
-                    NewsSourceModel("", "asfsegerv", "", "", "", "", ""),
-                    NewsSourceModel("", "asfacxca", "", "", "", "", ""),
-                    NewsSourceModel("", "ascvrgr", "", "", "", "", ""),
-                    NewsSourceModel("", "eqdqwd", "", "", "", "", ""),
-                )
-            )
-        }
-
         discountsAdapter = DiscountsAdapter().apply {
             submitList(
                 listOf(
@@ -77,6 +63,14 @@ class MainFragment : Fragment() {
                 )
             )
         }
+
+        sourceAdapter = NewsSourceAdapter(object : NewsSourceOnClickListener {
+            override fun clickSource(id: String) {
+                viewModel.check(id)
+            }
+
+        })
+
 
 
 
@@ -94,7 +88,9 @@ class MainFragment : Fragment() {
 
 
 
-        viewModel.getSources()
+        viewModel.newsSourcesData.observe(viewLifecycleOwner) {
+            sourceAdapter.submitList(it)
+        }
 
 
 
