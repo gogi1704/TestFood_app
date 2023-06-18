@@ -14,18 +14,23 @@ class NewsViewModel @Inject constructor(
     application: Application,
     private val repository: NewsRepositoryImpl
 ) : AndroidViewModel(application) {
-    private var list = mutableListOf<NewsSourceModel>()
+    private var list = listOf<NewsSourceModel>()
         set(value) {
             field = value
             println(value)
         }
     fun getSources() {
         viewModelScope.launch {
-            list = repository.getSources().toMutableList()
+            list = repository.getSources()
         }
     }
 
     fun getNews() {}
+
+
+    init {
+        getSources()
+    }
 
 
 }

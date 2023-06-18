@@ -32,6 +32,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(layoutInflater, container, false)
+
         newsAdapter = NewsAdapter().apply {
             submitList(
                 listOf(
